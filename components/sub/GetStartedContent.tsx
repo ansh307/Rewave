@@ -1,0 +1,69 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import {
+    slideInFromLeft,
+    slideInFromRight,
+    slideInFromTop,
+} from "@/utils/motion";
+import { SparklesIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
+
+const GetStartedContent = () => {
+    return (
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            className="flex flex-row items-center justify-center px-40 mt-20 w-full z-[20]"
+        >
+            <div className="h-full w-full flex flex-col gap-5 justify-center ml-4 m-auto text-start">
+                <motion.div
+                    variants={slideInFromLeft(0.5)}
+                    className="flex flex-col gap-5 text-5xl font-bold text-white max-w-[1050px] w-auto h-auto"
+                >
+                    <span>
+                        Transform Your Workflow Today
+
+                    </span>
+                </motion.div>
+                <motion.p
+                    variants={slideInFromLeft(0.8)}
+                    className="text-lg text-gray-400 mt-5 mb-2 max-w-[720px]"
+                >
+                    Are you ready to revolutionize the way you work? Join the thousands who have already experienced the power of Rewave.
+                    Elevate your productivity, enhance your management skills, and embrace a new era of organization.
+                </motion.p>
+
+                <motion.div
+                    variants={slideInFromLeft(0.5)}
+                    className="flex  text-xl font-bold text-white max-w-[1050px] w-auto h-auto"
+                >
+                    <span>
+                        Get started now!
+                    </span>
+                </motion.div>
+
+
+                <motion.div
+                    variants={slideInFromLeft(0.8)}
+                    className="flex flex-row  items-start mt-2">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        // value={email}
+                        // onChange={handleInputChange}
+                        className="pr-40 pl-5 py-2 mb-4 border rounded-l"
+                    />
+                    <button
+                        // onClick={handleSignup} 
+                        style={{ padding: "0.5rem 1.5rem 0.57rem 1.6rem", background: '#7040C8', color: '#FFFFFF', fontWeight: 'bold', borderRadius: '0 0.25rem 0.25rem 0', cursor: 'pointer' }}>
+                        Sign up
+                    </button>
+                </motion.div>
+            </div>
+        </motion.div>
+    );
+};
+
+export default GetStartedContent;
