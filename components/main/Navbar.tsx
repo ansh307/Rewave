@@ -19,23 +19,23 @@ const Navbar = () => {
               className="cursor-pointer hover:animate-slowspin"
             />
 
-            <span className="font-bold  hidden md:block text-gray-300">
+            <span className="font-bold  hidden md:block text-[#ba77ff]">
               Rewave
             </span>
           </a>
 
           <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20">
             <div className="flex items-center justify-around w-full h-auto  bg-[#0300145e] mr-[15px] px-[20px] py-[10px] text-gray-200">
-              <a href="#projects" className="font-bold cursor-pointer">
+              <a href="#projects" className="font-thin cursor-pointer">
                 Solutions
               </a>
-              <a href="#about-me" className="font-bold cursor-pointer">
+              <a href="#about-me" className="font-thin cursor-pointer">
                 About
               </a>
-              <a href="#skills" className="font-bold cursor-pointer">
+              <a href="#skills" className="font-thin cursor-pointer">
                 Contact
               </a>
-              <a href="#about-me" className="text-gray-400 font-bold cursor-pointer">
+              <a href="#about-me" className="text-gray-400 font-thin cursor-pointer">
                 Get Started!
               </a>
             </div>
