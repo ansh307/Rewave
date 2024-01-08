@@ -17,16 +17,24 @@ const HeroContent = () => {
 
   const [email, setEmail] = useState('');
 
-  const notify = () => toast.success('Email submitted successfully', {
-    position: "top-center",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
+  const notify = (emailStatus: Boolean) => {
+    const message = emailStatus
+      ? 'Email submitted successfully'
+      : 'Email exists';
+
+    const toastType = emailStatus ? toast.success : toast.error;
+
+    toastType(message, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   const handleSubmit = async () => {
     try {
@@ -37,28 +45,24 @@ const HeroContent = () => {
         },
         body: JSON.stringify({ email }),
       });
-
+      console.log(response.status, response)
       if (response.ok) {
         // Handle success, maybe reset the form or show a success message
         console.log('Email submitted successfully');
         setEmail('');
-
+        notify(true)
       } else {
         // Handle error, maybe show an error message to the user
         console.error('Failed to submit email');
+        notify(false)
       }
     } catch (error) {
       console.error('Error submitting email:', error);
+      notify(false)
     }
   };
 
-  const handleButtonClick = () => {
-    handleSubmit();
-    notify();
-  };
-
   return (
-
     <motion.div
       initial="hidden"
       animate="visible"
@@ -105,15 +109,12 @@ const HeroContent = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            // value={email}
-            // onChange={handleInputChange}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="pr-40 pl-5 py-2 mb-4 border rounded-l"
           />
           <button
-            // onClick={handleSignup} 
-            onClick={handleButtonClick}
+            onClick={handleSubmit}
             style={{ padding: "0.5rem 1.5rem 0.57rem 1.6rem", background: '#7040C8', color: '#FFFFFF', fontWeight: 'bold', borderRadius: '0 0.25rem 0.25rem 0', cursor: 'pointer' }}>
             Sign up
           </button>
