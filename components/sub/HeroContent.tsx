@@ -12,54 +12,26 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { notify, submitEmail } from '@/utils/emailUtils';
+
 
 const HeroContent = () => {
 
   const [email, setEmail] = useState('');
 
-  const notify = (emailStatus: Boolean) => {
-    const message = emailStatus
-      ? 'Email submitted successfully'
-      : 'Email exists';
-
-    const toastType = emailStatus ? toast.success : toast.error;
-
-    toastType(message, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-
-  const handleSubmit = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/submit-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-      console.log(response.status, response)
-      if (response.ok) {
-        // Handle success, maybe reset the form or show a success message
+  const handleEmailSubmit = () => {
+    submitEmail(
+      email,
+      () => {
         console.log('Email submitted successfully');
         setEmail('');
-        notify(true)
-      } else {
-        // Handle error, maybe show an error message to the user
+        notify(true);
+      },
+      () => {
         console.error('Failed to submit email');
-        notify(false)
+        notify(false);
       }
-    } catch (error) {
-      console.error('Error submitting email:', error);
-      notify(false)
-    }
+    );
   };
 
   return (
@@ -114,7 +86,7 @@ const HeroContent = () => {
             className="pr-40 pl-5 py-2 mb-4 border rounded-l"
           />
           <button
-            onClick={handleSubmit}
+            onClick={handleEmailSubmit}
             style={{ padding: "0.5rem 1.5rem 0.57rem 1.6rem", background: '#7040C8', color: '#FFFFFF', fontWeight: 'bold', borderRadius: '0 0.25rem 0.25rem 0', cursor: 'pointer' }}>
             Sign up
           </button>
