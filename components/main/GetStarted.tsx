@@ -4,7 +4,7 @@ import GetStartedContent from "../sub/GetStartedContent";
 
 const GetStarted = () => {
   return (
-    <div className="relative flex flex-col h-full w-full" id="about-me">
+    <div className="relative flex flex-col h-full w-full" id="get-started">
       <GetStartedContent />
     </div>
   );

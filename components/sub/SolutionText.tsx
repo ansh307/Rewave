@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { SparklesIcon } from '@heroicons/react/24/solid'
 
-const ServicesText = () => {
+const SolutionText = () => {
   return (
     <div className='w-full h-auto flex flex-col items-center '>
       <motion.div
@@ -32,4 +32,4 @@ const ServicesText = () => {
   )
 }
 
-export default ServicesText;
+export default SolutionText;

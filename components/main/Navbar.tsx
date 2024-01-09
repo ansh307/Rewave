@@ -14,6 +14,40 @@ const Navbar = () => {
     setShowSocialModal(false);
   };
 
+  const scrollToSection = (sectionId: string): void => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = offsetTop - /* optional: adjust for fixed header */ 65;
+      const duration = 500; // in milliseconds
+
+      const startTime = performance.now();
+
+      const animateScroll = (currentTime: number): void => {
+        const elapsed = currentTime - startTime;
+        const ease = easeInOutCubic(elapsed, 0, 1, duration);
+
+        window.scrollTo(0, window.scrollY + ease * (targetScroll - window.scrollY));
+
+        if (elapsed < duration) {
+          requestAnimationFrame(animateScroll);
+        }
+      };
+
+      requestAnimationFrame(animateScroll);
+    }
+  };
+
+
+  const easeInOutCubic = (t : number, b : number, c : number, d : number) : number => {
+    // easing function for smooth scroll
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t * t + b;
+    t -= 2;
+    return (c / 2) * (t * t * t + 2) + b;
+  };
+
+
   return (
     <>
 
@@ -37,18 +71,41 @@ const Navbar = () => {
               </span>
             </a>
 
-            <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20">
+            <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20 z-50">
               <div className="flex items-center justify-around w-full h-auto  bg-[#0300145e] mr-[15px] px-[20px] py-[10px] text-gray-200">
-                <a href="#projects" className="font-thin cursor-pointer">
+                <a
+                  href="#Solutions"
+                  className="font-thin cursor-pointer"
+                  onClick={() => scrollToSection("Solutions")}
+                >
                   Solutions
                 </a>
-                <a href="#about-me" className="font-thin cursor-pointer">
+                <a
+                  href="#Services"
+                  className="font-thin cursor-pointer"
+                  onClick={() => scrollToSection("Services")}
+                >
+                  Services
+                </a>
+                <a
+                  href="#about"
+                  className="font-thin cursor-pointer"
+                  onClick={() => scrollToSection("about")}
+                >
                   About
                 </a>
-                <a href="#skills" className="font-thin cursor-pointer">
+                <a
+                  href="#about"
+                  className="font-thin cursor-pointer"
+                  onClick={() => scrollToSection("about")}
+                >
                   Contact
                 </a>
-                <a href="#about-me" className="text-gray-400 font-thin cursor-pointer">
+                <a
+                  href="#get-started"
+                  className="text-gray-400 font-thin cursor-pointer"
+                  onClick={() => scrollToSection("get-started")}
+                >
                   Get Started!
                 </a>
               </div>

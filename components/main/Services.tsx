@@ -1,39 +1,34 @@
 import React from "react";
-// import SkillDataProvider from "../sub/ServicesDataProvider";
-import ServicesText from "../sub/ServicesText";
-// import WhyCard from "../sub/WhyCard";
-import WhyCardProvider from "../sub/WhyCardProvider";
+import ServicesCard from "../sub/ServicesCard";
 
-
-
-const Skills = () => {
-
+const Services = () => {
   return (
-    <section
-      id="skills"
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pt-20 "
-      style={{ transform: "scale(0.9" }}
+    <div
+      className="flex flex-col items-center justify-center pb-20"
+      id="Services"
     >
-      <ServicesText />
-
-      <WhyCardProvider />
-     
-
-      <div className="w-full h-full absolute">
-        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <video
-            className="w-full h-auto"
-            preload="false"
-            playsInline
-            loop
-            muted
-            autoPlay
-            src="/cards-video.webm"
-          />
-        </div>
+      <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 pt-20 pb-10">
+        Services
+      </h1>
+      <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
+        <ServicesCard
+          src="/Services.png"
+          title="Workflow Optimization"
+          description="Streamline your processes for maximum efficiency. We analyze your workflow, identify bottlenecks, and implement solutions to optimize every step."
+        />
+        <ServicesCard
+          src="/Services.png"
+          title="Task Management Solutions"
+          description="Revolutionize the way you manage tasks. Our comprehensive task management services ensure that you stay organized, prioritize effectively, and meet your goals."
+        />
+        <ServicesCard
+          src="/Services.png"
+          title="Collaborative Workspace Integration"
+          description="Foster teamwork and boost collaboration with our collaborative workspace solutions. Create a centralized hub for your team to share ideas, assign tasks, and track progress."
+        />
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Skills;
+export default Services;

@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import WhyCard from './WhyCard';
+import SolutionsCard from './SolutionsCard';
 import { slideInFromLeft } from '@/utils/motion';
 
 interface Props {
@@ -34,7 +34,7 @@ const WhyCardProvider = () => {
                 // custom={index}
                 transition={{ delay: 1 * animationDelay }}
             >
-                <WhyCard
+                <SolutionsCard
                     title="Intuitive Task Management"
                     description="Effortlessly organize your day with our user-friendly task management system. Prioritize, categorize, and stay on top of your to-do list like never before."
                 />
@@ -47,7 +47,7 @@ const WhyCardProvider = () => {
                 // custom={index}
                 transition={{ delay: 2 * animationDelay }}
             >
-                <WhyCard
+                <SolutionsCard
                     title="Collaborative Workspace"
                     description="Enhance team collaboration with our collaborative workspace feature. Share ideas, assign tasks, and track progress seamlessly within a centralized platform."
                 />
@@ -60,7 +60,7 @@ const WhyCardProvider = () => {
                 // custom={index}
                 transition={{ delay: 3 * animationDelay }}
             >
-                <WhyCard
+                <SolutionsCard
                     title="Time Tracking and Analytics"
                     description="Optimize your time with our powerful time-tracking tools. Identify productivity patterns, set realistic goals, and achieve more in less time."
                 />
@@ -73,7 +73,7 @@ const WhyCardProvider = () => {
                 // custom={index}
                 transition={{ delay: 4 * animationDelay }}
             >
-                <WhyCard
+                <SolutionsCard
                     title="Mobile Accessibility"
                     description="Stay productive on the go. Our Rewave is fully accessible on mobile devices, ensuring you're always in control, no matter where you are."
                 />
