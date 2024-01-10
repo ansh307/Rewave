@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
 
-  const easeInOutCubic = (t : number, b : number, c : number, d : number) : number => {
+  const easeInOutCubic = (t: number, b: number, c: number, d: number): number => {
     // easing function for smooth scroll
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t * t + b;
@@ -71,39 +71,39 @@ const Navbar = () => {
               </span>
             </a>
 
-            <div className="w-[400px] h-full flex flex-row items-center justify-between md:mr-20 z-50">
+            <div className="w-[525px] h-full flex flex-row items-center justify-between md:mr-20 z-50">
               <div className="flex items-center justify-around w-full h-auto  bg-[#0300145e] mr-[15px] px-[20px] py-[10px] text-gray-200">
                 <a
                   href="#Solutions"
-                  className="font-thin cursor-pointer"
+                  className=" cursor-pointer"
                   onClick={() => scrollToSection("Solutions")}
                 >
                   Solutions
                 </a>
                 <a
                   href="#Services"
-                  className="font-thin cursor-pointer"
+                  className=" cursor-pointer"
                   onClick={() => scrollToSection("Services")}
                 >
                   Services
                 </a>
                 <a
                   href="#about"
-                  className="font-thin cursor-pointer"
+                  className=" cursor-pointer"
                   onClick={() => scrollToSection("about")}
                 >
                   About
                 </a>
                 <a
                   href="#about"
-                  className="font-thin cursor-pointer"
+                  className=" cursor-pointer"
                   onClick={() => scrollToSection("about")}
                 >
                   Contact
                 </a>
                 <a
                   href="#get-started"
-                  className="text-gray-400 font-thin cursor-pointer"
+                  className="text-white cursor-pointer"
                   onClick={() => scrollToSection("get-started")}
                 >
                   Get Started!
@@ -129,27 +129,31 @@ const Navbar = () => {
           </div>
         </div>
         <SocialModal isVisible={showSocialModal} onClose={handleCloseSocialModal}>
-          <div className="flex justify-center">
+          <div className="flex justify-center px-5 pb-5">
             <div className="flex flex-col gap-2 text-center">
-              <p className="text-lg text-white font-semibold mb-4">Social Handles</p>
-              {socialHandles.map((handle, index) => (
-                <div key={index} className="flex flex-row gap-2">
-                  <Image
-                    src={handle.imagePath}
-                    alt={handle.name}
-                    key={handle.name}
-                    width={24}
-                    height={24}
-                  />
-                  <a
-                    key={index}
-                    href={handle.url}
-                    className="text-white hover:underline transition duration-300 ease-in-out transform hover:scale-105"
-                  >
-                    {handle.name}
-                  </a>
-                </div>
-              ))}
+              <div className="w-[354px] bg-[#100c33] rounded-md" >
+                <p className="text-lg text-white font-semibold m-5">Social Handles</p>
+              </div>
+              <div className="">
+                {socialHandles.map((handle, index) => (
+                  <div key={index} className="flex flex-row justify-center gap-2 p-2">
+                    <Image
+                      src={handle.imagePath}
+                      alt={handle.name}
+                      key={handle.name}
+                      width={24}
+                      height={24}
+                    />
+                    <a
+                      key={index}
+                      href={handle.url}
+                      className="text-white hover:underline transition duration-300 ease-in-out transform hover:scale-105"
+                    >
+                      {handle.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

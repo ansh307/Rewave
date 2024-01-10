@@ -19,7 +19,7 @@ const SocialModal = ({ isVisible, onClose, children }) => {
         >
           &times;
         </button>
-        <div className="bg-[#0c0929] p-5 rounded">{children}</div>
+        <div className="bg-[#0c0929] rounded-md">{children}</div>
       </div>
     </div>
   );
