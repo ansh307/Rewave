@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import validator from 'validator';
 
 export const notify = (emailStatus) => {
   const message = emailStatus
@@ -38,4 +39,9 @@ export const submitEmail = async (email, onSuccess, onError) => {
     console.error('Error submitting email:', error);
     onError();
   }
+};
+
+
+export const isValidEmail = (email) => {
+  return validator.isEmail(email);
 };

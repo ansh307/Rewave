@@ -12,7 +12,8 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { notify, submitEmail } from '@/utils/emailUtils';
+import { notify, submitEmail, isValidEmail } from '@/utils/emailUtils';
+
 
 
 const HeroContent = () => {
@@ -20,6 +21,23 @@ const HeroContent = () => {
   const [email, setEmail] = useState('');
 
   const handleEmailSubmit = () => {
+
+    if (!isValidEmail(email)) {
+      // If not valid, display an error message and return early
+      console.error('Invalid email format');
+      // You can also display a toast notification for invalid email
+      toast.error('Invalid email format', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
     submitEmail(
       email,
       () => {
@@ -131,7 +149,7 @@ const HeroContent = () => {
         />
       </motion.div> */}
     </motion.div>
-    
+
   );
 };
 
